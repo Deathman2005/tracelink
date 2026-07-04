@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #F6F9FC;
+  --foreground: #0F172A;
+  --surface: #FFFFFF;
+  --card: #FFFFFF;
+  --sidebar: #FFFFFF;
+  --alternate: #F1F5F9;
+  
+  --primary: #0F172A;
+  --primary-hover: #1E293B;
+  --primary-light: #EAF1FF;
+  
+  --brand-accent: #2B6EF3;
+  --brand-accent-hover: #1F5FE0;
+  --brand-accent-light: #DCE8FF;
+
+  --accent-blue: #2B6EF3;
+  --accent-blue-hover: #1F5FE0;
+  --accent-blue-light: #DCE8FF;
+
+  --analytics-green: #00A35C;
+  --analytics-green-hover: #008C4F;
+  --analytics-green-light: #DCFCE7;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-disabled: #94A3B8;
+  
+  --border: #E2E8F0;
+  --divider: #EEF2F6;
+  
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #0284C7;
+  
+  /* Form Inputs Light Theme */
+  --input-bg: #FFFFFF;
+  --input-border: #CBD5E1;
+  --input-focus-border: #2B6EF3;
+  --input-focus-ring: rgba(43,110,243,0.15);
+
+  /* Card Light Theme shadow */
+  --radius-card: 12px;
+  --shadow-card: 0px 1px 2px rgba(15,23,42,0.04), 0px 1px 3px rgba(15,23,42,0.06);
+  --shadow-card-hover: 0px 4px 12px rgba(15,23,42,0.08);
+
+  /* Sidebar Light Theme variables */
+  --sidebar-text: #475569;
+  --sidebar-active-bg: #EFF6FF;
+  --sidebar-active-text: #2B6EF3;
+  --sidebar-hover: #F8FAFC;
+  --sidebar-border: #E2E8F0;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dark {
+  --background: #001F30;
+  --foreground: #F8FAFC;
+  --surface: #062A3D;
+  --card: #062A3D;
+  --sidebar: #0F172A;
+  --alternate: #062A3D;
+  
+  --primary: #F8FAFC;
+  --primary-hover: #CBD5E1;
+  --primary-light: #0F172A;
+  
+  --brand-accent: #60A5FA;
+  --brand-accent-hover: #93C5FD;
+  --brand-accent-light: rgba(96, 165, 250, 0.15);
+
+  --accent-blue: #60A5FA;
+  --accent-blue-hover: #93C5FD;
+  --accent-blue-light: rgba(96, 165, 250, 0.15);
+
+  --analytics-green: #00A35C;
+  --analytics-green-hover: #008C4F;
+  --analytics-green-light: rgba(0, 163, 92, 0.15);
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-disabled: #64748B;
+  
+  --border: #334155;
+  --divider: #475569;
+
+  --success: #00A35C;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #0284C7;
+
+  /* Form Inputs Dark Theme */
+  --input-bg: #062A3D;
+  --input-border: #334155;
+  --input-focus-border: #60A5FA;
+  --input-focus-ring: rgba(96, 165, 250, 0.2);
+
+  /* Card Dark Theme shadow */
+  --shadow-card: 0px 1px 3px rgba(0,0,0,0.2);
+  --shadow-card-hover: 0px 4px 12px rgba(0,0,0,0.3);
+
+  /* Sidebar Dark Theme variables */
+  --sidebar-text: #CBD5E1;
+  --sidebar-active-bg: rgba(96, 165, 250, 0.1);
+  --sidebar-active-text: #60A5FA;
+  --sidebar-hover: rgba(248, 250, 252, 0.05);
+  --sidebar-border: #334155;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-sidebar: var(--sidebar);
+  --color-alternate: var(--alternate);
+  
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-brand-accent-light: var(--brand-accent-light);
+
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-hover: var(--accent-blue-hover);
+  --color-accent-blue-light: var(--accent-blue-light);
+
+  --color-analytics-green: var(--analytics-green);
+  --color-analytics-green-hover: var(--analytics-green-hover);
+  --color-analytics-green-light: var(--analytics-green-light);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+  
+  --color-border: var(--border);
+  --color-divider: var(--divider);
+  
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  /* Sidebar registered utilities */
+  --color-sidebar-text: var(--sidebar-text);
+  --color-sidebar-active: var(--sidebar-active-bg);
+  --color-sidebar-active-text: var(--sidebar-active-text);
+  --color-sidebar-hover: var(--sidebar-hover);
+  --color-sidebar-border: var(--sidebar-border);
+  
+  --radius-card: var(--radius-card);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom transitions for buttons, interactive elements (200ms ease) */
+a, button, input, textarea, select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom Webkit scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
