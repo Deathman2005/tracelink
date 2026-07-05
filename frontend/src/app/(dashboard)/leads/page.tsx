@@ -208,9 +208,6 @@ export default function LeadsPage() {
         ) : currentView !== 'engagement' ? (
           displayedLeads.length === 0 ? (
             <div className="flex flex-col items-center justify-center p-16 text-center max-w-md mx-auto">
-              <div className="mb-6 relative flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue">
-                <Users className="h-8 w-8" />
-              </div>
               <h3 className="text-sm font-bold text-text-primary">No leads captured yet</h3>
               <p className="mt-2 text-xs leading-relaxed text-text-secondary">
                 Leads will populate here automatically once readers register their credentials to view gated files or links.
