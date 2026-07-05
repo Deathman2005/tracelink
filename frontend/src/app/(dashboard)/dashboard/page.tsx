@@ -19,7 +19,8 @@ import {
   Laptop,
   Compass,
   Zap,
-  Users
+  Users,
+  Target
 } from 'lucide-react';
 import {
   AreaChart,
@@ -309,8 +310,10 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-end justify-between mt-2">
                   <div>
-                    <h3 className="text-3xl font-bold text-text-primary leading-none">{kpis.totalViews}</h3>
-                    <p className="text-[10px] text-text-muted mt-1.5">{kpis.totalDownloads} downloads</p>
+                    <span className="inline-flex rounded-full bg-accent-blue-light border border-accent-blue/15 px-2.5 py-0.5 text-[9px] font-bold text-accent-blue uppercase tracking-wider mb-1.5">
+                      Coming Soon
+                    </span>
+                    <p className="text-[10px] text-text-muted">Document telemetry & views dashboard</p>
                   </div>
                 </div>
               </div>
@@ -319,8 +322,8 @@ export default function Dashboard() {
               <div className="rounded-card border border-border bg-surface p-5 shadow-card transition-all hover:shadow-card-hover flex flex-col justify-between h-32">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-text-muted">Interest Score</span>
-                  <div className="rounded-md bg-analytics-green-light p-1.5 text-analytics-green animate-pulse">
-                    <Zap className="h-4 w-4" />
+                  <div className="rounded-md bg-[#EEF2F6] dark:bg-[#1E293B] p-1.5 text-text-secondary">
+                    <Target className="h-4 w-4" />
                   </div>
                 </div>
                 <div className="flex items-end justify-between mt-2">
