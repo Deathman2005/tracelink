@@ -479,8 +479,8 @@ export default function Dashboard() {
                   <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">Real-Time Tracker</h3>
                   <p className="text-lg font-bold text-text-primary mt-0.5">Audience Signals & Logs</p>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-analytics-green-light px-2.5 py-1 text-[10px] font-bold text-analytics-green uppercase tracking-wider animate-pulse">
-                  <span className="h-1.5 w-1.5 rounded-full bg-analytics-green" /> Live Tracking
+                <span className="inline-flex items-center gap-1 rounded-full bg-analytics-green px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white" /> LIVE
                 </span>
               </div>
 
