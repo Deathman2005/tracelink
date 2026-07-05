@@ -345,7 +345,7 @@ export default function Dashboard() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">Traffic Trend</h3>
-                  <p className="text-lg font-bold text-text-primary mt-0.5">Link Clicks vs Document Views</p>
+                  <p className="text-lg font-bold text-text-primary mt-0.5">Link Clicks Traffic Trend</p>
                 </div>
                 {/* Filter buttons */}
                 <div className="flex rounded-lg bg-background p-1 border border-border">
@@ -385,10 +385,6 @@ export default function Dashboard() {
                           <stop offset="5%" stopColor="#2B6EF3" stopOpacity={0.15} />
                           <stop offset="95%" stopColor="#2B6EF3" stopOpacity={0} />
                         </linearGradient>
-                        <linearGradient id="gradientOpens" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#60A5FA" stopOpacity={0.15} />
-                          <stop offset="95%" stopColor="#60A5FA" stopOpacity={0} />
-                        </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--divider)" />
                       <XAxis
@@ -416,15 +412,6 @@ export default function Dashboard() {
                         strokeWidth={2}
                         fillOpacity={1}
                         fill="url(#gradientClicks)"
-                      />
-                      <Area
-                        type="monotone"
-                        name="Document Views"
-                        dataKey="opens"
-                        stroke="#60A5FA"
-                        strokeWidth={2}
-                        fillOpacity={1}
-                        fill="url(#gradientOpens)"
                       />
                     </AreaChart>
                   </ResponsiveContainer>
@@ -631,7 +618,7 @@ export default function Dashboard() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">Interactive Analytics</h3>
-                <p className="text-lg font-bold text-text-primary mt-0.5">Click-through Rate & Read Actions</p>
+                <p className="text-lg font-bold text-text-primary mt-0.5">Link Click-through Performance</p>
               </div>
               <div className="flex rounded-lg bg-background p-1 border border-border">
                 <button
@@ -670,10 +657,6 @@ export default function Dashboard() {
                         <stop offset="5%" stopColor="#2B6EF3" stopOpacity={0.15} />
                         <stop offset="95%" stopColor="#2B6EF3" stopOpacity={0} />
                       </linearGradient>
-                      <linearGradient id="gradientOpens" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#60A5FA" stopOpacity={0.15} />
-                        <stop offset="95%" stopColor="#60A5FA" stopOpacity={0} />
-                      </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--divider)" />
                     <XAxis
@@ -701,15 +684,6 @@ export default function Dashboard() {
                       strokeWidth={2.5}
                       fillOpacity={1}
                       fill="url(#gradientClicks)"
-                    />
-                    <Area
-                      type="monotone"
-                      name="Document Views"
-                      dataKey="opens"
-                      stroke="#60A5FA"
-                      strokeWidth={2.5}
-                      fillOpacity={1}
-                      fill="url(#gradientOpens)"
                     />
                   </AreaChart>
                 </ResponsiveContainer>
