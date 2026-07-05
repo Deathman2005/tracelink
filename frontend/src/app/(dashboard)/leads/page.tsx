@@ -312,9 +312,6 @@ export default function LeadsPage() {
         ) : (
           displayedScores.length === 0 ? (
             <div className="flex flex-col items-center justify-center p-16 text-center max-w-md mx-auto">
-              <div className="mb-6 relative flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue">
-                <Sparkles className="h-8 w-8 animate-pulse" />
-              </div>
               <h3 className="text-sm font-bold text-text-primary">No engagement analytics compiled yet</h3>
               <p className="mt-2 text-xs leading-relaxed text-text-secondary">
                 Our insights engine compiles interest levels automatically once visitor clicks, views, and downloads are registered on links and documents.
