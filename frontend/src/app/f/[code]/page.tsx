@@ -11,7 +11,7 @@ import {
   ArrowRight,
   Loader2,
   AlertCircle,
-  Sparkles,
+  ShieldCheck,
   Download,
   Eye,
 } from 'lucide-react';
@@ -173,7 +173,7 @@ export default function DocumentViewerPage() {
       <div className="flex min-h-screen w-screen items-center justify-center bg-background p-6 text-text-primary">
         <div className="w-full max-w-md rounded-card border border-border bg-card p-8 shadow-card text-center space-y-6">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue">
-            <Sparkles className="h-6 w-6 text-accent-blue animate-pulse" />
+            <ShieldCheck className="h-6 w-6 text-accent-blue animate-pulse" />
           </div>
 
           <div className="space-y-2">

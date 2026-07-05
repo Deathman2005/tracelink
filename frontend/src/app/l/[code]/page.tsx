@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { apiClient } from '../../../lib/api-client';
-import { Mail, User, Building, ArrowRight, Loader2, AlertCircle, Sparkles } from 'lucide-react';
+import { Mail, User, Building, ArrowRight, Loader2, AlertCircle, ShieldCheck } from 'lucide-react';
 
 export default function LinkGatewayPage() {
   const params = useParams();
@@ -72,7 +72,7 @@ export default function LinkGatewayPage() {
       <div className="w-full max-w-md rounded-card border border-border bg-card p-8 shadow-card text-center space-y-6">
         {/* Branding icon */}
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue">
-          <Sparkles className="h-6 w-6 text-accent-blue animate-pulse" />
+          <ShieldCheck className="h-6 w-6 text-accent-blue animate-pulse" />
         </div>
 
         {/* Text */}
