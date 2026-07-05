@@ -14,6 +14,7 @@ import {
   CreditCard, 
   Sparkles, 
   Shield, 
+  ShieldCheck,
   Receipt, 
   Download, 
   ChevronRight, 
@@ -626,7 +627,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between border-b border-divider pb-3 mb-6 shrink-0">
               <div>
                 <h3 className="text-sm font-bold text-text-primary flex items-center gap-1.5">
-                  <Sparkles className="h-4.5 w-4.5 text-accent-blue" />
+                  <ShieldCheck className="h-4.5 w-4.5 text-accent-blue" />
                   Upgrade Subscription Tier
                 </h3>
                 <span className="text-[10px] text-text-muted">Unlock unlimited tracked redirections, custom landing banners, and email gateways.</span>
