@@ -916,14 +916,8 @@ export default function Dashboard() {
                         <td className="px-5 py-4">{getCountryName(act.metadata?.country)}</td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.os || 'Unknown'}</td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.browser || 'Unknown'}</td>
-                        <td className="px-5 py-4">
-                          <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider border ${
-                            act.assetType === 'file'
-                              ? 'bg-analytics-green-light text-analytics-green border-analytics-green/15'
-                              : 'bg-accent-blue-light text-accent-blue border-accent-blue/15'
-                          }`}>
-                            {act.assetName} ({act.assetType})
-                          </span>
+                        <td className="px-5 py-4 capitalize">
+                          {act.assetName} ({act.assetType})
                         </td>
                       </tr>
                     ))
