@@ -353,16 +353,16 @@ export default function LeadsPage() {
                           </div>
                         </td>
 
-                        {/* Interest Level badge */}
+                        {/* Interest Level text */}
                         <td className="px-5 py-4">
-                          <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase border ${
-                            isHot
-                              ? 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/50'
-                              : isWarm
-                              ? 'bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/50'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-transparent'
-                          }`}>
-                            {isHot ? '🔥 Hot Prospect' : isWarm ? '⚡ Warm Lead' : '❄️ Cold Lead'}
+                          <span
+                            className={`text-[10px] font-bold uppercase tracking-wider ${
+                              isHot || isWarm
+                                ? 'text-text-primary'
+                                : 'text-text-muted'
+                            }`}
+                          >
+                            {isHot ? 'Hot Prospect' : isWarm ? 'Warm Lead' : 'Cold Lead'}
                           </span>
                         </td>
 
