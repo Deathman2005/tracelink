@@ -383,10 +383,10 @@ export default function LinksPage() {
                         {/* Lead Gate status */}
                         <td className="px-5 py-4">
                           <span
-                            className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                            className={`inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-wider ${
                               l.requireLeadGate
-                                ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-900/50'
-                                : 'bg-[#EEF2F6] dark:bg-[#1E293B] text-text-secondary'
+                                ? 'text-text-primary'
+                                : 'text-text-muted'
                             }`}
                           >
                             {l.requireLeadGate ? 'Email Gate Active' : 'Off'}
