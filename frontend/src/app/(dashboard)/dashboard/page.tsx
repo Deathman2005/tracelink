@@ -309,8 +309,10 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-end justify-between mt-2">
                   <div>
-                    <h3 className="text-3xl font-bold text-text-primary leading-none">{kpis.totalViews}</h3>
-                    <p className="text-[10px] text-text-muted mt-1.5">{kpis.totalDownloads} downloads</p>
+                    <span className="inline-flex rounded-full bg-accent-blue-light border border-accent-blue/15 px-2.5 py-0.5 text-[9px] font-bold text-accent-blue uppercase tracking-wider mb-1.5">
+                      Coming Soon
+                    </span>
+                    <p className="text-[10px] text-text-muted">Document telemetry & views dashboard</p>
                   </div>
                 </div>
               </div>
