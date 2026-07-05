@@ -385,11 +385,7 @@ export default function SettingsPage() {
             )}
 
             <div className="relative">
-              {/* Blur Overlay for Coming Soon */}
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-xl bg-surface/75 backdrop-blur-[2px] text-center p-6">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue shadow-sm">
-                  <Sparkles className="h-6 w-6 animate-pulse" />
-                </div>
                 <h4 className="text-sm font-bold text-text-primary">Custom Cloud Storage Override</h4>
                 <span className="rounded bg-accent-blue px-2.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider mt-1.5 mb-1">Coming Soon</span>
                 <p className="max-w-md text-[11px] leading-relaxed text-text-secondary mt-1">
