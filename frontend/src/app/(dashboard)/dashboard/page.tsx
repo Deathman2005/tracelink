@@ -200,6 +200,20 @@ export default function Dashboard() {
     }
   };
 
+  // Helper to translate country codes (e.g. IN, US) to regional flag emoji
+  const getFlagEmoji = (countryCode: string): string => {
+    if (!countryCode || countryCode === 'Unknown' || countryCode.length !== 2) return '';
+    const codePoints = countryCode
+      .toUpperCase()
+      .split('')
+      .map((char) => 127397 + char.charCodeAt(0));
+    try {
+      return String.fromCodePoint(...codePoints);
+    } catch (e) {
+      return '';
+    }
+  };
+
   // Format Event Types for timeline logs
   const formatEventDescription = (event: ActivityEvent) => {
     const countryName = getCountryName(event.metadata?.country);
@@ -743,7 +757,15 @@ export default function Dashboard() {
                         <div key={c.name} className="space-y-1.5">
                           <div className="flex items-center justify-between text-xs font-semibold text-text-primary">
                             <span className="flex items-center gap-2">
-                              <Globe className="h-4 w-4 text-text-muted" />
+                              {c.name && c.name !== 'Unknown' && c.name.length === 2 ? (
+                                <img
+                                  src={`https://flagcdn.com/w40/${c.name.toLowerCase()}.png`}
+                                  className="w-4.5 h-auto object-contain rounded-sm shrink-0 border border-divider"
+                                  alt={name}
+                                />
+                              ) : (
+                                <Globe className="h-4 w-4 text-text-muted shrink-0" />
+                              )}
                               {name}
                             </span>
                             <span>{c.value} visits ({percentage}%)</span>
@@ -787,7 +809,16 @@ export default function Dashboard() {
             </div>
             <div className="rounded-card border border-border bg-surface p-5 shadow-card flex flex-col justify-between h-28">
               <span className="text-[11px] font-bold uppercase tracking-wider text-text-muted">Top Country</span>
-              <h3 className="text-3xl font-bold text-text-primary mt-2 truncate">{topCountry}</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mt-2 truncate flex items-center gap-2.5">
+                {topCountryCode && topCountryCode !== 'Unknown' && topCountryCode.length === 2 && (
+                  <img
+                    src={`https://flagcdn.com/w40/${topCountryCode.toLowerCase()}.png`}
+                    className="w-6.5 h-auto object-contain rounded-sm shrink-0 border border-divider"
+                    alt={topCountry}
+                  />
+                )}
+                <span>{topCountry}</span>
+              </h3>
               <p className="text-[10px] text-text-muted mt-1">Highest audience hub</p>
             </div>
             <div className="rounded-card border border-border bg-surface p-5 shadow-card flex flex-col justify-between h-28">
@@ -913,7 +944,18 @@ export default function Dashboard() {
                           {new Date(act.timestamp).toLocaleString()}
                         </td>
                         <td className="px-5 py-4 font-mono">{act.metadata?.ip || 'Hidden'}</td>
-                        <td className="px-5 py-4">{getCountryName(act.metadata?.country)}</td>
+                        <td className="px-5 py-4">
+                          <span className="inline-flex items-center gap-2">
+                            {act.metadata?.country && act.metadata.country !== 'Unknown' && act.metadata.country.length === 2 && (
+                              <img
+                                src={`https://flagcdn.com/w40/${act.metadata.country.toLowerCase()}.png`}
+                                className="w-4.5 h-auto object-contain rounded-sm shrink-0 border border-divider"
+                                alt={getCountryName(act.metadata.country)}
+                              />
+                            )}
+                            <span>{getCountryName(act.metadata?.country)}</span>
+                          </span>
+                        </td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.os || 'Unknown'}</td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.browser || 'Unknown'}</td>
                         <td className="px-5 py-4 capitalize">

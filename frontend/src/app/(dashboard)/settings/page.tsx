@@ -363,7 +363,7 @@ export default function SettingsPage() {
                     <Shield className="h-3 w-3" /> Custom Override Active
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-analytics-green-light border border-analytics-green/15 px-2.5 py-0.5 text-[10px] font-bold text-analytics-green uppercase tracking-wider">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-analytics-green px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
                     <CheckCircle className="h-3 w-3" /> Platform Default Active
                   </span>
                 )}
@@ -532,87 +532,89 @@ export default function SettingsPage() {
           </div>
 
           {/* Invoices List */}
-          <div className="rounded-card border border-border bg-surface p-6 shadow-card">
-            <div className="flex items-center gap-2 border-b border-divider pb-3 mb-4">
-              <Receipt className="h-5 w-5 text-text-muted" />
-              <h3 className="font-bold text-text-primary">Invoice History</h3>
-            </div>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left text-xs text-text-secondary">
-                <thead className="bg-[#EEF2F6] dark:bg-[#1E293B] text-[10px] font-bold uppercase tracking-wider text-text-muted border-b border-border">
-                  <tr>
-                    <th className="px-5 py-4">Invoice ID</th>
-                    <th className="px-5 py-4">Date Issued</th>
-                    <th className="px-5 py-4">Billing Amount</th>
-                    <th className="px-5 py-4">Payment Method</th>
-                    <th className="px-5 py-4">Status</th>
-                    <th className="px-5 py-4 text-right">Invoice</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-divider">
-                  {selectedPlan === 'free' ? (
-                    <>
-                      <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
-                        <td className="px-5 py-4 font-bold text-text-primary">INV-2026-002</td>
-                        <td className="px-5 py-4">Jun 18, 2026</td>
-                        <td className="px-5 py-4 font-semibold text-text-primary">$0.00</td>
-                        <td className="px-5 py-4 text-text-muted">Trial Signup</td>
-                        <td className="px-5 py-4">
-                          <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
-                        </td>
-                        <td className="px-5 py-4 text-right">
-                          <button
-                            onClick={() => alert('Mock invoice generated. PDF downloaded successfully.')}
-                            className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
-                          >
-                            <Download className="h-4 w-4" />
-                          </button>
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
-                        <td className="px-5 py-4 font-bold text-text-primary">INV-2026-001</td>
-                        <td className="px-5 py-4">May 18, 2026</td>
-                        <td className="px-5 py-4 font-semibold text-text-primary">$0.00</td>
-                        <td className="px-5 py-4 text-text-muted">Account Created</td>
-                        <td className="px-5 py-4">
-                          <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
-                        </td>
-                        <td className="px-5 py-4 text-right">
-                          <button
-                            onClick={() => alert('Mock invoice generated. PDF downloaded successfully.')}
-                            className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
-                          >
-                            <Download className="h-4 w-4" />
-                          </button>
-                        </td>
-                      </tr>
-                    </>
-                  ) : (
-                    <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
-                      <td className="px-5 py-4 font-bold text-text-primary">INV-2026-PRO-01</td>
-                      <td className="px-5 py-4">Jul 04, 2026</td>
-                      <td className="px-5 py-4 font-semibold text-text-primary">
-                        {selectedPlan === 'pro' ? '$29.00' : '$149.00'}
-                      </td>
-                      <td className="px-5 py-4 text-text-muted">Visa ending 4242</td>
-                      <td className="px-5 py-4">
-                        <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
-                      </td>
-                      <td className="px-5 py-4 text-right">
-                        <button
-                          onClick={() => alert('Invoice generated. PDF downloaded successfully.')}
-                          className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
-                        >
-                          <Download className="h-4 w-4" />
-                        </button>
-                      </td>
+          {false && (
+            <div className="rounded-card border border-border bg-surface p-6 shadow-card">
+              <div className="flex items-center gap-2 border-b border-divider pb-3 mb-4">
+                <Receipt className="h-5 w-5 text-text-muted" />
+                <h3 className="font-bold text-text-primary">Invoice History</h3>
+              </div>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-left text-xs text-text-secondary">
+                  <thead className="bg-[#EEF2F6] dark:bg-[#1E293B] text-[10px] font-bold uppercase tracking-wider text-text-muted border-b border-border">
+                    <tr>
+                      <th className="px-5 py-4">Invoice ID</th>
+                      <th className="px-5 py-4">Date Issued</th>
+                      <th className="px-5 py-4">Billing Amount</th>
+                      <th className="px-5 py-4">Payment Method</th>
+                      <th className="px-5 py-4">Status</th>
+                      <th className="px-5 py-4 text-right">Invoice</th>
                     </tr>
-                  )}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-divider">
+                    {selectedPlan === 'free' ? (
+                      <>
+                        <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
+                          <td className="px-5 py-4 font-bold text-text-primary">INV-2026-002</td>
+                          <td className="px-5 py-4">Jun 18, 2026</td>
+                          <td className="px-5 py-4 font-semibold text-text-primary">$0.00</td>
+                          <td className="px-5 py-4 text-text-muted">Trial Signup</td>
+                          <td className="px-5 py-4">
+                            <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
+                          </td>
+                          <td className="px-5 py-4 text-right">
+                            <button
+                              onClick={() => alert('Mock invoice generated. PDF downloaded successfully.')}
+                              className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
+                            >
+                              <Download className="h-4 w-4" />
+                            </button>
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
+                          <td className="px-5 py-4 font-bold text-text-primary">INV-2026-001</td>
+                          <td className="px-5 py-4">May 18, 2026</td>
+                          <td className="px-5 py-4 font-semibold text-text-primary">$0.00</td>
+                          <td className="px-5 py-4 text-text-muted">Account Created</td>
+                          <td className="px-5 py-4">
+                            <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
+                          </td>
+                          <td className="px-5 py-4 text-right">
+                            <button
+                              onClick={() => alert('Mock invoice generated. PDF downloaded successfully.')}
+                              className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
+                            >
+                              <Download className="h-4 w-4" />
+                            </button>
+                          </td>
+                        </tr>
+                      </>
+                    ) : (
+                      <tr className="hover:bg-[#F5F8FC]/50 transition-colors">
+                        <td className="px-5 py-4 font-bold text-text-primary">INV-2026-PRO-01</td>
+                        <td className="px-5 py-4">Jul 04, 2026</td>
+                        <td className="px-5 py-4 font-semibold text-text-primary">
+                          {selectedPlan === 'pro' ? '$29.00' : '$149.00'}
+                        </td>
+                        <td className="px-5 py-4 text-text-muted">Visa ending 4242</td>
+                        <td className="px-5 py-4">
+                          <span className="inline-flex rounded-full bg-analytics-green-light px-2 py-0.5 text-[9px] font-bold text-analytics-green uppercase border border-analytics-green/10">Paid</span>
+                        </td>
+                        <td className="px-5 py-4 text-right">
+                          <button
+                            onClick={() => alert('Invoice generated. PDF downloaded successfully.')}
+                            className="rounded p-1 text-text-secondary hover:bg-[#EEF2F6] hover:text-text-primary"
+                          >
+                            <Download className="h-4 w-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
 

@@ -11,7 +11,7 @@ import {
   Link2,
   FileText,
   QrCode,
-  Sparkles,
+  Activity,
   Mail,
   Settings,
   CreditCard,
@@ -48,7 +48,7 @@ const navCategories: NavCategory[] = [
   {
     category: 'Intelligence',
     items: [
-      { name: 'Engagement', href: '/leads?view=engagement', icon: Sparkles },
+      { name: 'Engagement', href: '/leads?view=engagement', icon: Activity },
       { name: 'Leads', href: '/leads', icon: Mail },
     ],
   },
