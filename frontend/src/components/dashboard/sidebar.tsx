@@ -11,7 +11,7 @@ import {
   Link2,
   FileText,
   QrCode,
-  Sparkles,
+  Activity,
   Mail,
   Settings,
   CreditCard,
@@ -48,7 +48,7 @@ const navCategories: NavCategory[] = [
   {
     category: 'Intelligence',
     items: [
-      { name: 'Engagement', href: '/leads?view=engagement', icon: Sparkles },
+      { name: 'Engagement', href: '/leads?view=engagement', icon: Activity },
       { name: 'Leads', href: '/leads', icon: Mail },
     ],
   },
@@ -98,9 +98,8 @@ export default function Sidebar() {
     <aside className="fixed inset-y-0 left-0 z-20 flex w-64 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-text">
       {/* Platform Branding */}
       <div className="flex h-16 items-center px-6 border-b border-divider">
-        <Link href="/dashboard" className="flex items-center gap-2 font-bold text-text-primary text-lg tracking-tight">
-          <LogoIcon className="h-5.5 w-5.5 text-accent-blue shrink-0" />
-          <span>TraceLink</span>
+        <Link href="/dashboard" className="flex items-center">
+          <img src="/logo.png" alt="TraceLink" className="h-7 w-auto object-contain dark:brightness-0 dark:invert" />
         </Link>
       </div>
 

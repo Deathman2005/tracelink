@@ -238,9 +238,6 @@ export default function FilesPage() {
       <div className="relative">
         {/* Blur Overlay for Coming Soon */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl bg-surface/75 backdrop-blur-[2px] text-center p-16 min-h-[400px]">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue-light text-accent-blue shadow-md">
-            <Sparkles className="h-8 w-8 animate-pulse" />
-          </div>
           <h3 className="text-lg font-bold text-text-primary">Document Sharing & Portfolios</h3>
           <span className="rounded bg-accent-blue px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider mt-2.5 mb-2 shadow-xs">Coming Soon</span>
           <p className="max-w-md text-xs leading-relaxed text-text-secondary mt-1">
