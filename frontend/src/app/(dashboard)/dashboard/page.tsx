@@ -81,6 +81,8 @@ interface ActivityEvent {
     os?: string;
     ip?: string;
     country?: string;
+    region?: string;
+    city?: string;
   };
 }
 
@@ -203,7 +205,15 @@ export default function Dashboard() {
   // Format Event Types for timeline logs
   const formatEventDescription = (event: ActivityEvent) => {
     const countryName = getCountryName(event.metadata?.country);
-    const loc = event.metadata?.country ? `from ${countryName}` : 'visitor';
+    const city = event.metadata?.city;
+    const region = event.metadata?.region;
+
+    const locationParts = [];
+    if (city) locationParts.push(city);
+    if (region) locationParts.push(region);
+    if (countryName && countryName !== 'Unknown') locationParts.push(countryName);
+
+    const loc = locationParts.length > 0 ? `from ${locationParts.join(', ')}` : 'visitor';
     const client = event.metadata?.browser ? `on ${event.metadata.browser}` : '';
 
     switch (event.eventType) {
@@ -509,6 +519,14 @@ export default function Dashboard() {
                             <span>IP: {act.metadata?.ip || 'Hidden'}</span>
                             <span>•</span>
                             <span>OS: {act.metadata?.os || 'Unknown Device'}</span>
+                            {(act.metadata?.city || act.metadata?.region) && (
+                              <>
+                                <span>•</span>
+                                <span>
+                                  Location: {[act.metadata.city, act.metadata.region].filter(Boolean).join(', ')}
+                                </span>
+                              </>
+                            )}
                           </p>
                         </div>
 
@@ -913,7 +931,22 @@ export default function Dashboard() {
                           {new Date(act.timestamp).toLocaleString()}
                         </td>
                         <td className="px-5 py-4 font-mono">{act.metadata?.ip || 'Hidden'}</td>
-                        <td className="px-5 py-4">{getCountryName(act.metadata?.country)}</td>
+                        <td className="px-5 py-4">
+                          <span className="inline-flex items-center gap-2">
+                            {act.metadata?.country && act.metadata.country !== 'Unknown' && act.metadata.country.length === 2 && (
+                              <img
+                                src={`https://flagcdn.com/w40/${act.metadata.country.toLowerCase()}.png`}
+                                className="w-4.5 h-auto object-contain rounded-sm shrink-0 border border-divider"
+                                alt={getCountryName(act.metadata.country)}
+                              />
+                            )}
+                            <span>
+                              {act.metadata?.city ? `${act.metadata.city}, ` : ''}
+                              {act.metadata?.region ? `${act.metadata.region}, ` : ''}
+                              {getCountryName(act.metadata?.country)}
+                            </span>
+                          </span>
+                        </td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.os || 'Unknown'}</td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.browser || 'Unknown'}</td>
                         <td className="px-5 py-4 capitalize">
