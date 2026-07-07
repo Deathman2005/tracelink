@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import useragent from 'useragent';
-import geoip from 'geoip-country';
+import geoip from 'geoip-lite';
 
 export interface VisitorDetails {
   browser: string;
@@ -8,6 +8,8 @@ export interface VisitorDetails {
   device: string;
   ip: string;
   country: string;
+  region: string;
+  city: string;
   referer: string;
 }
 
@@ -41,15 +43,19 @@ export const parseRequestDetails = (req: Request): VisitorDetails => {
 
   // If running behind Cloudflare or Vercel, utilize country headers, otherwise use offline GeoIP lookup
   let country = (req.headers['cf-ipcountry'] as string) || (req.headers['x-vercel-ip-country'] as string);
+  let region = (req.headers['x-vercel-ip-country-region'] as string) || '';
+  let city = (req.headers['x-vercel-ip-city'] as string) || '';
 
-  if (!country && ip) {
+  if (ip) {
     let cleanIp = ip;
     if (cleanIp.startsWith('::ffff:')) {
       cleanIp = cleanIp.substring(7);
     }
     const geo = geoip.lookup(cleanIp);
-    if (geo && geo.country) {
-      country = geo.country;
+    if (geo) {
+      if (!country) country = geo.country;
+      if (!region) region = geo.region;
+      if (!city) city = geo.city;
     } else {
       // Check if private/local IP to default to India (user's location) for accurate local testing
       const isLocal =
@@ -76,7 +82,9 @@ export const parseRequestDetails = (req: Request): VisitorDetails => {
         cleanIp.startsWith('172.31.');
 
       if (isLocal) {
-        country = 'IN';
+        if (!country) country = 'IN';
+        if (!region) region = 'MH';
+        if (!city) city = 'Mumbai';
       }
     }
   }
@@ -91,6 +99,8 @@ export const parseRequestDetails = (req: Request): VisitorDetails => {
     device,
     ip,
     country,
+    region,
+    city,
     referer,
   };
 };

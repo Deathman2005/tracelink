@@ -81,6 +81,8 @@ interface ActivityEvent {
     os?: string;
     ip?: string;
     country?: string;
+    region?: string;
+    city?: string;
   };
 }
 
@@ -217,7 +219,15 @@ export default function Dashboard() {
   // Format Event Types for timeline logs
   const formatEventDescription = (event: ActivityEvent) => {
     const countryName = getCountryName(event.metadata?.country);
-    const loc = event.metadata?.country ? `from ${countryName}` : 'visitor';
+    const city = event.metadata?.city;
+    const region = event.metadata?.region;
+
+    const locationParts = [];
+    if (city) locationParts.push(city);
+    if (region) locationParts.push(region);
+    if (countryName && countryName !== 'Unknown') locationParts.push(countryName);
+
+    const loc = locationParts.length > 0 ? `from ${locationParts.join(', ')}` : 'visitor';
     const client = event.metadata?.browser ? `on ${event.metadata.browser}` : '';
 
     switch (event.eventType) {
@@ -523,6 +533,14 @@ export default function Dashboard() {
                             <span>IP: {act.metadata?.ip || 'Hidden'}</span>
                             <span>•</span>
                             <span>OS: {act.metadata?.os || 'Unknown Device'}</span>
+                            {(act.metadata?.city || act.metadata?.region) && (
+                              <>
+                                <span>•</span>
+                                <span>
+                                  Location: {[act.metadata.city, act.metadata.region].filter(Boolean).join(', ')}
+                                </span>
+                              </>
+                            )}
                           </p>
                         </div>
 
@@ -953,7 +971,11 @@ export default function Dashboard() {
                                 alt={getCountryName(act.metadata.country)}
                               />
                             )}
-                            <span>{getCountryName(act.metadata?.country)}</span>
+                            <span>
+                              {act.metadata?.city ? `${act.metadata.city}, ` : ''}
+                              {act.metadata?.region ? `${act.metadata.region}, ` : ''}
+                              {getCountryName(act.metadata?.country)}
+                            </span>
                           </span>
                         </td>
                         <td className="px-5 py-4 capitalize">{act.metadata?.os || 'Unknown'}</td>
